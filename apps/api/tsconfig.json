@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true,
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "checkJs": true
+  },
+  "exclude": ["node_modules", "dist"]
+}

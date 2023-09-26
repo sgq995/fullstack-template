@@ -1,0 +1,19 @@
+{
+  "name": "@project/api",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node scripts/dev.mjs",
+    "build": "cross-env NODE_ENV=production node scripts/build.mjs"
+  },
+  "dependencies": {
+    "fastify": "4.23.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.7.0",
+    "cross-env": "7.0.3",
+    "esbuild": "0.19.3",
+    "pino-pretty": "10.2.0"
+  }
+}

@@ -15,8 +15,9 @@ module.exports = {
       files: ["*.mjs"],
       parserOptions: {
         sourceType: "module",
-        ecmaVersion: 2015,
+        ecmaVersion: 2022,
       },
+      env: { node: true },
     },
     {
       // Define the configuration for `.astro` file.
