@@ -1,18 +1,7 @@
 {
-  "name": "misvotos",
-  "type": "module",
-  "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/tailwind": "5.0.0",
-    "astro": "3.1.2",
-    "tailwindcss": "3.3.3"
+    "dev": "turbo dev",
+    "build": "turbo build"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^6.7.2",
@@ -23,5 +12,8 @@
     "prettier": "3.0.3",
     "prettier-plugin-astro": "0.12.0",
     "prettier-plugin-tailwindcss": "0.5.4"
+  },
+  "dependencies": {
+    "turbo": "1.10.14"
   }
 }
