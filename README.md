@@ -1,46 +1,42 @@
-# Astro Starter Kit: Minimal
+# Fullstack Starter Kit
 
-```sh
-npm create astro@latest -- --template minimal
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+pnpm install
+```
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+Inside of this monorepo, you'll see the following folders:
 
 ```text
 /
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
+├── apps/
+│   └── api/
+│   └── www/
+├── packages/
+│   └── trpc/
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Folders in the `apps` directory are considered the final projects, something the user will see at the end. The folders in the `packages` are the shared projects.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+The template contains some preconfigured projects:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- `apps/api/` is a [fastify](https://fastify.dev/) project.
+- `apps/www/` is an [Astro](https://astro.build/) project.
+- `packages/trpc` is the shared [tRPC](https://trpc.io/) definition.
+
+Tubo is used as monorepo build system. When `pnpm dev` is executed, every change to the `api/main.ts` and any modification for `.astro` or `.md` files in the `www/src/pages/` will dispatch an update.
 
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command        | Action                                                                                 |
+| :------------- | :------------------------------------------------------------------------------------- |
+| `pnpm install` | Installs dependencies                                                                  |
+| `pnpm dev`     | Starts local dev server at `localhost:4321` for Astro and `localhost:3000` for fastify |
+| `pnpm build`   | Build your production project to `./apps/**/dist/` folders                             |
 
 ## 👀 Want to learn more?
 
