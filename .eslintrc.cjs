@@ -7,6 +7,7 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "prettier",
   ],
+  ignorePatterns: ["**/dist/**"],
   rules: {
     "@typescript-eslint/consistent-type-imports": "error",
   },

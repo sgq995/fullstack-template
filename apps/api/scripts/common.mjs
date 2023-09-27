@@ -23,6 +23,6 @@ export const buildOptions = {
   outfile,
   platform: "node",
   target: "node18",
-  external,
+  // external,
   logLevel: "info",
 };

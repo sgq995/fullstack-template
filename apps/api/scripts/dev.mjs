@@ -1,6 +1,6 @@
 import { spawn } from "node:child_process";
 import esbuild from "esbuild";
-import { buildOptions, outdir, outfile } from "./common.mjs";
+import { buildOptions, external, outdir, outfile } from "./common.mjs";
 
 /** @type{import('node:child_process').ChildProcess | null} */
 var child = null;
@@ -38,6 +38,7 @@ const runPlugin = {
 esbuild
   .context({
     ...buildOptions,
+    external,
     plugins: [runPlugin],
   })
   .then((context) => context.watch());

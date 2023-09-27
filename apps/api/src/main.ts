@@ -32,7 +32,7 @@ app.get("/health", async function handler() {
   return { statusCode: 200, status: "OK" };
 });
 
-app.listen({ port: 3000 }).catch((reason) => {
+app.listen({ host: "0.0.0.0", port: 3000 }).catch((reason) => {
   app.log.error(reason);
   process.exit(1);
 });
