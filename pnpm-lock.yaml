@@ -39,6 +39,12 @@ importers:
 
   apps/api:
     dependencies:
+      '@project/trpc':
+        specifier: workspace:*
+        version: link:../../packages/trpc
+      '@trpc/server':
+        specifier: 10.38.4
+        version: 10.38.4
       fastify:
         specifier: 4.23.2
         version: 4.23.2
@@ -67,6 +73,18 @@ importers:
       tailwindcss:
         specifier: 3.3.3
         version: 3.3.3
+
+  packages/trpc:
+    dependencies:
+      '@trpc/client':
+        specifier: 10.38.4
+        version: 10.38.4(@trpc/server@10.38.4)
+      '@trpc/server':
+        specifier: 10.38.4
+        version: 10.38.4
+      zod:
+        specifier: 3.22.2
+        version: 3.22.2
 
 packages:
 
@@ -906,6 +924,18 @@ packages:
       picocolors: 1.0.0
       tslib: 2.6.2
     dev: true
+
+  /@trpc/client@10.38.4(@trpc/server@10.38.4):
+    resolution: {integrity: sha512-svpZ9Iq9cnn+XfXQZF8PMt1YxAtNYeGiKZ/pGpcume7RqJrra/kWwU41gbax8d/cAg3YKUgNft9dZFKMYtXuYw==}
+    peerDependencies:
+      '@trpc/server': 10.38.4
+    dependencies:
+      '@trpc/server': 10.38.4
+    dev: false
+
+  /@trpc/server@10.38.4:
+    resolution: {integrity: sha512-xSMTwnKA/Unxu5fbAkQ7cApHeWj1rTEA3XgrGDcPHn03fmeIidIKxronM46N46ZF4CCexey4JWzu89XxA16uIA==}
+    dev: false
 
   /@types/babel__core@7.20.2:
     resolution: {integrity: sha512-pNpr1T1xLUc2l3xJKuPtsEky3ybxN3m4fJkknfIpTCTfIZCDW57oAg+EfCgIIp2rvCe0Wn++/FfodDS4YXxBwA==}
@@ -5535,6 +5565,10 @@ packages:
 
   /zod@3.21.1:
     resolution: {integrity: sha512-+dTu2m6gmCbO9Ahm4ZBDapx2O6ZY9QSPXst2WXjcznPMwf2YNpn3RevLx4KkZp1OPW/ouFcoBtBzFz/LeY69oA==}
+    dev: false
+
+  /zod@3.22.2:
+    resolution: {integrity: sha512-wvWkphh5WQsJbVk1tbx1l1Ly4yg+XecD+Mq280uBGt9wa5BKSWf4Mhp6GmrkPixhMxmabYY7RbzlwVP32pbGCg==}
     dev: false
 
   /zwitch@2.0.4:

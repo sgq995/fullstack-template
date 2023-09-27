@@ -1,0 +1,14 @@
+{
+  "name": "@project/trpc",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@trpc/client": "10.38.4",
+    "@trpc/server": "10.38.4",
+    "zod": "3.22.2"
+  },
+  "exports": {
+    "./server": "./server/index.ts"
+  }
+}

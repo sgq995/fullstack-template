@@ -8,6 +8,8 @@
     "build": "cross-env NODE_ENV=production node scripts/build.mjs"
   },
   "dependencies": {
+    "@project/trpc": "workspace:*",
+    "@trpc/server": "10.38.4",
     "fastify": "4.23.2"
   },
   "devDependencies": {

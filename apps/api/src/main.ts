@@ -1,4 +1,6 @@
 import fastify from "fastify";
+import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
+import { appRouter } from "@project/trpc/server";
 
 const envToLogger = {
   development: {
@@ -19,7 +21,12 @@ type Environment = keyof typeof envToLogger;
 const environment: Environment =
   (process.env["NODE_ENV"] as Environment) ?? "production";
 
-const app = fastify({ logger: envToLogger[environment] });
+const app = fastify({ logger: envToLogger[environment], maxParamLength: 5000 });
+
+app.register(fastifyTRPCPlugin, {
+  prefix: "/trpc",
+  trpcOptions: { router: appRouter },
+});
 
 app.get("/", async function handler(request, reply) {
   return { hello: "world!" };
