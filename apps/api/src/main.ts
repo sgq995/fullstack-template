@@ -28,12 +28,8 @@ app.register(fastifyTRPCPlugin, {
   trpcOptions: { router: appRouter },
 });
 
-app.get("/", async function handler() {
-  return { hello: "world!" };
-});
-
-app.get("/test", async function handler() {
-  return { test: "test" };
+app.get("/health", async function handler() {
+  return { statusCode: 200, status: "OK" };
 });
 
 app.listen({ port: 3000 }).catch((reason) => {
