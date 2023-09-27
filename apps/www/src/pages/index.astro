@@ -1,7 +1,5 @@
 ---
-import { trpc } from "@project/trpc/client";
 
-console.log(await trpc.userList.query());
 ---
 
 <html lang="en">
@@ -14,5 +12,14 @@ console.log(await trpc.userList.query());
   </head>
   <body>
     <h1>Astro</h1>
+    <button data-request>Make a request</button>
+    <script>
+      import { trpc } from "@project/trpc/client";
+
+      const buttons = document.querySelectorAll("[data-request]");
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => trpc.userList.query());
+      });
+    </script>
   </body>
 </html>

@@ -1,11 +1,15 @@
 module.exports = {
-  plugins: ["astro", "jsx-a11y"],
+  plugins: ["@typescript-eslint", "astro", "jsx-a11y"],
   extends: [
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:astro/recommended",
     "plugin:jsx-a11y/recommended",
     "prettier",
   ],
+  rules: {
+    "@typescript-eslint/consistent-type-imports": "error",
+  },
   overrides: [
     {
       files: ["*.cjs"],

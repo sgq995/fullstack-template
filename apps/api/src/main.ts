@@ -1,6 +1,6 @@
-import fastify from "fastify";
-import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
 import { appRouter } from "@project/trpc/server";
+import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
+import fastify from "fastify";
 
 const envToLogger = {
   development: {
@@ -28,11 +28,11 @@ app.register(fastifyTRPCPlugin, {
   trpcOptions: { router: appRouter },
 });
 
-app.get("/", async function handler(request, reply) {
+app.get("/", async function handler() {
   return { hello: "world!" };
 });
 
-app.get("/test", async function handler(request, reply) {
+app.get("/test", async function handler() {
   return { test: "test" };
 });
 
