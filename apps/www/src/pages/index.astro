@@ -1,5 +1,7 @@
 ---
+import { trpc } from "@project/trpc/client";
 
+console.log(await trpc.userList.query());
 ---
 
 <html lang="en">

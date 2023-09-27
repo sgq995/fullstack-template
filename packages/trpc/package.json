@@ -9,6 +9,7 @@
     "zod": "3.22.2"
   },
   "exports": {
-    "./server": "./server/index.ts"
+    "./server": "./server/index.ts",
+    "./client": "./client/index.ts"
   }
 }
