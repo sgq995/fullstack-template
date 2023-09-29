@@ -11,6 +11,9 @@ dependencies:
   astro:
     specifier: 3.1.2
     version: 3.1.2
+  pocketbase:
+    specifier: 0.18.0
+    version: 0.18.0
   tailwindcss:
     specifier: 3.3.3
     version: 3.3.3
@@ -3885,6 +3888,10 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       find-up: 4.1.0
+    dev: false
+
+  /pocketbase@0.18.0:
+    resolution: {integrity: sha512-09ri0Rnm4JjboU4OJeibd6pgvKi4DPg/r/Uu/QI3mKSZsrROoMT75zyiOldbBBMWZUDG1TRlv6BjQj30SFsrVw==}
     dev: false
 
   /postcss-import@15.1.0(postcss@8.4.31):
