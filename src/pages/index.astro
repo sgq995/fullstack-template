@@ -1,25 +1,30 @@
 ---
-
+import DocumentLayout from "../layouts/DocumentLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1 class="m-2 p-2">Astro</h1>
-    <button data-request>Make a request</button>
-    <script>
-      import { trpc } from "@project/trpc/client";
+<DocumentLayout>
+  <h1 class="m-2 p-2">Astro</h1>
+  <button data-request>Make a request</button>
+  <script>
+    import PocketBase from "pocketbase";
 
-      const buttons = document.querySelectorAll("[data-request]");
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => trpc.userList.query());
-      });
-    </script>
-  </body>
-</html>
+    const pb = new PocketBase("http://localhost:8090");
+
+    const data = {
+      username: "test_username",
+      email: "test@example.com",
+      emailVisibility: true,
+      password: "12345678",
+      passwordConfirm: "12345678",
+      name: "test",
+    };
+
+    const record = pb
+      .collection("users")
+      .create(data)
+      .then(console.log)
+      .catch(console.error);
+
+    pb.collection("users").getList().then(console.log).catch(console.error);
+  </script>
+</DocumentLayout>
