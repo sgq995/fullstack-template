@@ -1,30 +1,24 @@
 ---
+import EmailPasswordRegister from "../components/EmailPasswordRegister.astro";
+import LogoutButton from "../components/LogoutButton.astro";
+import OAuthLogin from "../components/OAuthLogin.astro";
 import DocumentLayout from "../layouts/DocumentLayout.astro";
 ---
 
 <DocumentLayout>
-  <h1 class="m-2 p-2">Astro</h1>
-  <button data-request>Make a request</button>
+  <main class="flex justify-center">
+    <div class="flex max-w-sm flex-col gap-2">
+      <LogoutButton />
+      <OAuthLogin />
+      <EmailPasswordRegister />
+    </div>
+  </main>
+
   <script>
     import PocketBase from "pocketbase";
 
     const pb = new PocketBase("http://localhost:8090");
 
-    const data = {
-      username: "test_username",
-      email: "test@example.com",
-      emailVisibility: true,
-      password: "12345678",
-      passwordConfirm: "12345678",
-      name: "test",
-    };
-
-    const record = pb
-      .collection("users")
-      .create(data)
-      .then(console.log)
-      .catch(console.error);
-
-    pb.collection("users").getList().then(console.log).catch(console.error);
+    pb.authStore.onChange(console.log);
   </script>
 </DocumentLayout>

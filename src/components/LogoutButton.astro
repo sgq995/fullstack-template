@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-body">
+    <button id="log-out" class="btn btn-secondary btn-block">Log Out</button>
+  </div>
+</div>
+
+<script>
+  import PocketBase from "pocketbase";
+
+  const pb = new PocketBase("http://localhost:8090");
+
+  const logOutButton = document.getElementById("log-out")!;
+  logOutButton.addEventListener("click", function onLogOut() {
+    pb.authStore.clear();
+  });
+</script>

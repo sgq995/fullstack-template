@@ -1,0 +1,40 @@
+---
+import { pb } from "../services/pocketbase";
+
+const authMethods = await pb.collection("users").listAuthMethods();
+
+const providers = authMethods.authProviders.map((provider) => provider.name);
+---
+
+<div class="card border border-slate-200">
+  <div class="card-body">
+    {
+      providers.map((provider) => (
+        <button class="btn btn-primary btn-block" data-social-login={provider}>
+          {provider}
+        </button>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  import PocketBase from "pocketbase";
+
+  const pb = new PocketBase("http://localhost:8090");
+
+  const socialLoginButtons = document.querySelectorAll<HTMLButtonElement>(
+    "[data-social-login]",
+  );
+  for (const button of socialLoginButtons) {
+    button.addEventListener("click", async function onSocialLoginClick() {
+      const provider = button.dataset["socialLogin"]!;
+
+      const authData = await pb.collection("users").authWithOAuth2({
+        provider,
+      });
+
+      console.log(authData);
+    });
+  }
+</script>
