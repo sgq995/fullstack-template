@@ -10,6 +10,7 @@ module.exports = {
   rules: {
     "@typescript-eslint/consistent-type-imports": "error",
   },
+  ignore: ["pocketbase"],
   overrides: [
     {
       files: ["*.cjs"],
