@@ -7,7 +7,7 @@
 <script>
   import PocketBase from "pocketbase";
 
-  const pb = new PocketBase("http://localhost:8090");
+  const pb = new PocketBase(`http://${location.host}`);
 
   const logOutButton = document.getElementById("log-out")!;
   logOutButton.addEventListener("click", function onLogOut() {

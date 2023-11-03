@@ -21,7 +21,7 @@ const providers = authMethods.authProviders.map((provider) => provider.name);
 <script>
   import PocketBase from "pocketbase";
 
-  const pb = new PocketBase("http://localhost:8090");
+  const pb = new PocketBase(`http://${location.host}`);
 
   const socialLoginButtons = document.querySelectorAll<HTMLButtonElement>(
     "[data-social-login]",

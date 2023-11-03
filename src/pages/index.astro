@@ -8,7 +8,7 @@ import DocumentLayout from "../layouts/DocumentLayout.astro";
 <DocumentLayout>
   <main class="flex justify-center">
     <div class="flex max-w-sm flex-col gap-2">
-      <LogoutButton />
+      <LogoutButton data-test="test" />
       <OAuthLogin />
       <EmailPasswordRegister />
     </div>
@@ -23,7 +23,7 @@ import DocumentLayout from "../layouts/DocumentLayout.astro";
   <script>
     import PocketBase from "pocketbase";
 
-    const pb = new PocketBase("http://localhost:8090");
+    const pb = new PocketBase(`http://${location.host}`);
 
     pb.authStore.onChange(console.log);
   </script>

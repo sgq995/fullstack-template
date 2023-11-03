@@ -16,3 +16,12 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+
+  nginx:
+    build: nginx
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    network_mode: host

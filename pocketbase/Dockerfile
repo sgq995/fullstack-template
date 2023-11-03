@@ -1,4 +1,4 @@
-FROM alpine:3.18.4 AS downloader
+FROM alpine:3.17 AS downloader
 
 ARG TARGETOS
 ARG TARGETARCH
@@ -12,7 +12,7 @@ ADD https://github.com/pocketbase/pocketbase/releases/download/v${VERSION}/pocke
 RUN unzip /tmp/pb.zip -d /pb/
 
 
-FROM alpine:3.18.4
+FROM alpine:3.17
 
 RUN apk add --no-cache unzip ca-certificates
 
