@@ -8,22 +8,22 @@ import DocumentLayout from "../layouts/DocumentLayout.astro";
 <DocumentLayout>
   <main class="flex justify-center">
     <div class="flex max-w-sm flex-col gap-2">
+      <a
+        href="https://segoqu.lemonsqueezy.com/checkout/buy/8e3a0dfa-574b-4ba1-b4f6-074840f535c1?embed=1&media=0&logo=0&checkout[custom][user_id]=123"
+        class="lemonsqueezy-button">Buy Test Product</a
+      >
+      <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+
       <LogoutButton data-test="test" />
       <OAuthLogin />
-      <EmailPasswordRegister />
+      <!-- <EmailPasswordRegister /> -->
     </div>
-
-    <a
-      href="https://segoqu.lemonsqueezy.com/checkout/buy/8e3a0dfa-574b-4ba1-b4f6-074840f535c1?embed=1&media=0&logo=0&checkout[custom][user_id]=123"
-      class="lemonsqueezy-button">Buy Test Product</a
-    >
-    <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
   </main>
 
   <script>
     import PocketBase from "pocketbase";
 
-    const pb = new PocketBase(`http://${location.host}`);
+    const pb = new PocketBase(import.meta.env.PUBLIC_POCKETBASE_URL);
 
     pb.authStore.onChange(console.log);
   </script>
