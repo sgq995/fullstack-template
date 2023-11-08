@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "5.0.0",
+    "@lemonsqueezy/lemonsqueezy.js": "1.2.1",
     "astro": "3.1.2",
     "pocketbase": "0.18.0",
     "tailwindcss": "3.3.3"
@@ -20,7 +21,7 @@
     "@tailwindcss/typography": "0.5.10",
     "@typescript-eslint/eslint-plugin": "6.7.3",
     "@typescript-eslint/parser": "6.7.2",
-    "daisyui": "3.8.2",
+    "daisyui": "3.9.4",
     "eslint": "8.50.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-astro": "0.29.0",

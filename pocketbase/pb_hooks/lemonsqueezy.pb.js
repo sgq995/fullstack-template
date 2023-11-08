@@ -19,14 +19,14 @@ function validate(next) {
   };
 }
 
-routerAdd("GET", "/hello", (c) => {
+routerAdd("GET", "/api/hello", (c) => {
   let name = c.pathParam("name");
   return c.json(200, { message: "Hey " + name });
 });
 
 routerAdd(
   "POST",
-  "/webhooks",
+  "/api/lemonsqueezy",
   (c) => {
     return c.json(200, {});
   },
